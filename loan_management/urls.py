@@ -33,8 +33,8 @@ urlpatterns = [
     # path('admin/', admin.site.urls),
 
     # API and Auth URLs
-    path('api/', include('loans.urls', namespace='loans')),
-    path('auth/', include('auth.urls', namespace='auth')),
+    path('api/', include('loans.urls')),
+    path('auth/', include('auth.urls')),
 
     # Base view
     path('', base_view, name='base'),
