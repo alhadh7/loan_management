@@ -892,3 +892,13 @@ If your access token expires, use the refresh endpoint:
 - **403**: Forbidden
 - **404**: Not Found
 - **500**: Internal Server Error
+
+
+## Resources
+
+1. **EMI Calculator**
+   - https://groww.in/calculators/emi-calculator
+
+2. **Loan Foreclosure Calculator**
+   - https://www.urbanmoney.com/calculator/loan-foreclosure-calculator
+
