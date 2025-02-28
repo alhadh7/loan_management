@@ -19,6 +19,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+def base_view(request):
+    return JsonResponse({"message":"Welcome to the API. Please visit the /api/ or /auth/ endpoint for further usage."})
+
 handler400 = 'loans.views.custom_400'
 handler403 = 'loans.views.custom_403'
 handler404 = 'loans.views.custom_404'
@@ -29,5 +32,6 @@ urlpatterns = [
     # path('admin/', admin.site.urls),
     path('api/', include('loans.urls')),
     path('auth/', include('auth.urls')),
+    path('', base_view, name='base'),  
 
 ]
