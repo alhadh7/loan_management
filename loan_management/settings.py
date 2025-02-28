@@ -26,7 +26,8 @@ SECRET_KEY = "django-insecure-(av2(ic=*l0h+@clxy1+t^t*81o_d+wqp7m1b_=v7_q$nt#hg4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
+ALLOWED_HOSTS = ['loan-management-doxv.onrender.com']
+
 
 
 # Application definition
