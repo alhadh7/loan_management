@@ -12,12 +12,6 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from datetime import timedelta
 from pathlib import Path
-import os
-import dj_database_url
-from dotenv import load_dotenv
-
-# Load environment variables from .env file
-load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,12 +21,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = "django-insecure-(av2(ic=*l0h+@clxy1+t^t*81o_d+wqp7m1b_=v7_q$nt#hg4"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG') == 'True'
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
 
 
 # Application definition
@@ -47,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'loans',
     'rest_framework.authtoken',  # Add this line
+
 ]
 
 MIDDLEWARE = [
@@ -84,18 +79,6 @@ WSGI_APPLICATION = "loan_management.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.postgresql",
-#         "NAME": os.environ.get('DB_NAME'),
-#         "USER": os.environ.get('DB_USER'),
-#         "PASSWORD": os.environ.get('DB_PASSWORD'),
-#         "HOST": os.environ.get('DB_HOST'),
-#         "PORT": os.environ.get('DB_PORT'),
-#     }
-# }
-
-
 import os
 import dj_database_url
 
@@ -106,7 +89,6 @@ DATABASE_URL = "postgresql://loan_management_na97_user:U6HTf9n649XNng8OgEfPVsTzL
 DATABASES = {
     "default": dj_database_url.parse(DATABASE_URL)
 }
-
 
 
 # Password validation
@@ -133,8 +115,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "en-us"
 
-# Set timezone for Kerala (India/Kerala)
-TIME_ZONE = os.environ.get('TIME_ZONE')
+TIME_ZONE = "UTC"
 
 USE_I18N = True
 
@@ -185,9 +166,9 @@ SIMPLE_JWT = {
 
 # Email settings
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = os.environ.get('EMAIL_HOST')
-EMAIL_PORT = int(os.environ.get('EMAIL_PORT'))
-EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS') == 'True'
-EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'alhadh707@gmail.com'  # Your Gmail address
+EMAIL_HOST_PASSWORD = 'cgnm cqxb anig ysmt'  # Your App Password
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
