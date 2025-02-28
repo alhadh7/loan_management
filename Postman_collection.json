@@ -7,7 +7,7 @@
     "variable": [
       {
         "key": "baseUrl",
-        "value": "http://localhost:8000",
+        "value": "https://loan-management-doxv.onrender.com",
         "type": "string"
       }
     ],
