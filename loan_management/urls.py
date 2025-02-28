@@ -15,13 +15,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
-# urls.py (main project)
 from django.contrib import admin
 from django.urls import path, include
+from django.http import JsonResponse  # Import JsonResponse
 
 def base_view(request):
     return JsonResponse({"message":"Welcome to the API. Please visit the /api/ or /auth/ endpoint for further usage."})
 
+# Define error handlers
 handler400 = 'loans.views.custom_400'
 handler403 = 'loans.views.custom_403'
 handler404 = 'loans.views.custom_404'
@@ -30,8 +31,12 @@ handler500 = 'loans.views.custom_500'
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
-    path('api/', include('loans.urls')),
-    path('auth/', include('auth.urls')),
-    path('', base_view, name='base'),  
 
+    # API and Auth URLs
+    path('api/', include('loans.urls', namespace='loans')),
+    path('auth/', include('auth.urls', namespace='auth')),
+
+    # Base view
+    path('', base_view, name='base'),
 ]
+
