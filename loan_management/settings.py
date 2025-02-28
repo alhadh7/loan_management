@@ -97,10 +97,16 @@ WSGI_APPLICATION = "loan_management.wsgi.application"
 
 
 import os
+import dj_database_url
 
+# Directly define the DATABASE_URL as a string
+DATABASE_URL = "postgresql://loan_management_na97_user:U6HTf9n649XNng8OgEfPVsTzL2oNHUJL@dpg-cv0nm9ij1k6c73ebfgg0-a/loan_management_na97"
+
+# Set up the DATABASES configuration using dj_database_url
 DATABASES = {
-    "default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    "default": dj_database_url.parse(DATABASE_URL)
 }
+
 
 
 # Password validation
